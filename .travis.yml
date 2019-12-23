@@ -12,7 +12,7 @@ script:
   - cd openwrt-imagebuilder-*/
   - |
     make image PROFILE=xunlong_orangepi-zero \
-    PACKAGES="nano luci uhttpd -dnsmasq" \
+    PACKAGES="nano luci uhttpd kmod-* -dnsmasq" \
     FILES=../files/ \
     EXTRA_IMAGE_NAME="custom"
 
