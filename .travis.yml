@@ -1,0 +1,25 @@
+language: cpp
+compiler: gcc
+sudo: require
+dist: trusty
+
+install:
+  - sudo apt-get -y install qbuild-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
+
+script:
+  - wget -c "https://downloads.openwrt.org/snapshots/targets/sunxi/cortexa7/openwrt-imagebuilder-sunxi-cortexa7.Linux-x86_64.tar.xz" # 45 MB
+  - tar xf openwrt-imagebuilder-*.tar.xz
+  - cd openwrt-imagebuilder-*/
+  - |
+    make image PROFILE=xunlong_orangepi-zero \
+    PACKAGES="nano -dnsmasq" \
+    FILES=files/
+
+after_success:
+  - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+  - bash upload.sh *.img.gz *.json
+  
+branches:
+  except:
+    - # Do not build tags that we create when we upload to GitHub Releases
+    - /^(?i:continuous)/
