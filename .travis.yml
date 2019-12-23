@@ -15,6 +15,7 @@ script:
     PACKAGES="nano  uhttpd luci-mod-admin-full luci-base libiwinfo-lua luci-theme-bootstrap -dnsmasq -firewall -ip6tables -iptables -odhcpd-ipv6only -ppp -ppp-mod-pppoe -uclient-fetch -odhcp6c kmod-ipt-offload" \
     FILES=../files/ \
     EXTRA_IMAGE_NAME="custom"
+  # luci-proto-wireguard luci-app-wireguard wireguard kmod-wireguard wireguard-tools
 
 after_success:
   - find ./bin/targets/ -type f -exec ls -lh {} \;
