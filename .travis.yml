@@ -13,13 +13,13 @@ script:
   - |
     make image PROFILE=xunlong_orangepi-zero \
     PACKAGES="nano -dnsmasq" \
-    FILES=../files/
+    FILES=../files/ \
+    EXTRA_IMAGE_NAME="custom"
 
 after_success:
-  - find . -name '*.img.*'
-  - find . -name '*.json'
+  - find ./bin/targets/ -type f -exec ls -lh {} \;
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh *.img.gz *.json
+  - bash upload.sh ./bin/targets/*/*/*
   
 branches:
   except:
