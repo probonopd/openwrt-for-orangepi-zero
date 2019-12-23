@@ -13,7 +13,7 @@ script:
   - |
     make image PROFILE=xunlong_orangepi-zero \
     PACKAGES="nano -dnsmasq" \
-    FILES=files/
+    FILES=../files/
 
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
