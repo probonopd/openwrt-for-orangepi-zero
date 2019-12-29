@@ -7,6 +7,7 @@ install:
   - sudo apt-get -y install build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
 
 script:
+  - chmod +x files/etc/uci-defaults/*
   - wget -c "https://downloads.openwrt.org/snapshots/targets/sunxi/cortexa7/openwrt-imagebuilder-sunxi-cortexa7.Linux-x86_64.tar.xz" # 45 MB
   - tar xf openwrt-imagebuilder-*.tar.xz
   - cd openwrt-imagebuilder-*/
