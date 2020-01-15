@@ -8,7 +8,8 @@ install:
 
 script:
   - chmod +x files/etc/uci-defaults/*
-  - wget -c "https://downloads.openwrt.org/snapshots/targets/sunxi/cortexa7/openwrt-imagebuilder-sunxi-cortexa7.Linux-x86_64.tar.xz" # 45 MB
+  # wget -c "https://downloads.openwrt.org/snapshots/targets/sunxi/cortexa7/openwrt-imagebuilder-sunxi-cortexa7.Linux-x86_64.tar.xz" # 45 MB
+  - wget -c "https://github.com/melsem/openwrt/blob/master/openwrt-imagebuilder-sunxi-cortexa7.Linux-i686.tar.xz?raw=true" --trust-server-names
   - tar xf openwrt-imagebuilder-*.tar.xz
   - cd openwrt-imagebuilder-*/
   - |
